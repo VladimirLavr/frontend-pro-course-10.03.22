@@ -1,4 +1,4 @@
-function chunk(list, chunkSize) {
+function chunk(list = [], chunkSize = list.length) {
   if (chunkSize) {
     return list.reduce((result, currentNum, index) => {
       if (index % chunkSize === 0) {
