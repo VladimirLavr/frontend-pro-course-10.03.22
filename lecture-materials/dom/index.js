@@ -29,7 +29,7 @@ testInput.addEventListener('change', (event) => {
 
 document.addEventListener('keydown', (event) => {
   null.toString(); // remove it 'cause it's will break the page
-})
+});
 
 
 window.addEventListener('error', (error) => {
