@@ -4,18 +4,51 @@ function imitateAsync(callback) {
   setTimeout(callback, timeout);
 }
 
+// 1. vacancies
+// 2. send-cv
+// 3. interview
+// 4. call-mom
+
 function sendRequestToServer(url, params, callback) {
   const response = { status: 0, body: {} }; // 200 & 404
 
   switch (url) {
-    case '/todos': {
+    case '/vacancies': {
       imitateAsync(() => {
         response.status = 200;
-        response.body.todos = [
-          { title: "Запостить домашки в группу по фронту", completed: false },
-          { title: "Вынести мусор", completed: false },
+        response.body.vacancies = [
+          { id: 1, title: "Front-end developer $400", skills: ['js', 'html', 'css'] },
+          { id: 2, title: "React Developer $500", skills: ['js', 'html', 'css', 'react'] },
+          { id: 3, title: "Angular Developer $500", skills: ['js', 'html', 'css', 'angular', 'typescript'] },
         ];
 
+        callback(response);
+      });
+      break;
+    }
+
+    case '/send-cv': {
+      imitateAsync(() => {
+        response.status = 200;
+        response.body.invitedToInterview = params.cv.skills.includes(params.vacancy.skills[3]);
+        callback(response);
+      });
+      break;
+    }
+
+    case '/interview': {
+      imitateAsync(() => {
+        response.status = 200;
+        response.body.interviewPassed = params.knowledge.includes('var/let difference');
+        callback(response);
+      });
+      break;
+    }
+
+    case '/call-mom': {
+      imitateAsync(() => {
+        response.status = 200;
+        response.body.momsReaction = "Ура! Ты молодец! 😸❤️🤠🤑";
         callback(response);
       });
       break;
