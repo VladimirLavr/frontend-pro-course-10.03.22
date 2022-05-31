@@ -1,0 +1,19 @@
+# Request
+HTTP/1.1 GET
+    Host: some.site.com
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+    Accept: application/json
+    Accept-Language: en-US
+    Accept-Encoding: gzip
+
+# Response
+HTTP/1.0 200 OK
+  Server: nginx/0.7.67
+  Date: Sun, 30 May 2022 19:15
+  Content-Type: text/html
+  X-Powered-By: PHP/5.2.12
+  Expires: Thu, 30 May 2022 21:15
+
+
+REST
+
