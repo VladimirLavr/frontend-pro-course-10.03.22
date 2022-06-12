@@ -1,39 +1,5 @@
 // code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
-// code from NPM
+import {createElement} from '../../element-creator';
 
 function * stepper(count) {
   for (let index = count; index > count; index--) {
@@ -43,7 +9,7 @@ function * stepper(count) {
 
 console.log(123);
 
-function greet(name) {
+function hello(name) {
   return `Hello ${name}!`;
 }
 
@@ -51,3 +17,4 @@ function greet(name) {
 // ES Modules
 console.log(stepper());
 
+createElement();

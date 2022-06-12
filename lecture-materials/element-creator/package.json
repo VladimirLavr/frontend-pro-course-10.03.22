@@ -1,0 +1,24 @@
+{
+  "name": "element-creator",
+  "version": "1.0.0",
+  "description": "This function helps you create DOM elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "DOM",
+    "element"
+  ],
+  "author": "Andrii Doroshenko",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "webpack": "^5.73.0"
+  }
+}
