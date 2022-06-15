@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import {add} from './operations/add';
 import {minus} from './operations/minus';
 import {camelCase} from 'lodash';
