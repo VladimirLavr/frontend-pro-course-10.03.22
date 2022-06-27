@@ -1,0 +1,12 @@
+{
+  "name": "js-with-sse-and-ws",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "run": "npx nodemon server.js"
+  },
+  "dependencies": {
+    "redux": "^4.2.0"
+  }
+}
