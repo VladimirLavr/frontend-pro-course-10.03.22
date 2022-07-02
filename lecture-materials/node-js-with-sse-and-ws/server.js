@@ -1,4 +1,10 @@
+import { createReadStream } from 'fs';
 import { createServer } from 'http';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 console.clear();
 
 const users = [
@@ -27,9 +33,39 @@ const users = [
   },
 ];
 
+const sse = (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  res.write("data: testing sse\n");
+  res.write("id: 1\n");
+  res.write("\n");
+
+  setTimeout(() => {
+    res.write("data: hello\n");
+    res.write("\n");
+  }, 2000);
+
+
+  setTimeout(() => {
+    res.write('event: end-of-stream\n');
+    res.write('data: null\n');
+    res.write(`id: ${2}\n`);
+    res.write(`\n`);
+    res.end();
+  }, 5000);
+
+};
+
+
 const httpServer = createServer((req, res) => {
   const url = new URL(`http://${req.headers.host}${req.url}`);
 
+  if (url.pathname === '/sse') {
+    sse(req, res);
+    return;
+  }
 
   if (url.pathname === "/users") {
     res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -43,8 +79,8 @@ const httpServer = createServer((req, res) => {
     return;
   }
 
-  res.statusCode = 404;
-  res.end("You lost, buddy? ;)");
+  const fileStream = createReadStream(join(__dirname, "public/index.html"));
+  fileStream.pipe(res);
 });
 
 httpServer.listen(8080, () => console.log("Server is started on port 8080"));
