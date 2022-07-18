@@ -11,7 +11,7 @@ export class TodoList extends Component {
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/todos/').then(res => res.json()).then((data) => {
-      this.setState({todos: data});
+      this.setState({todos: data.slice(0, 3)});
     });
   }
 
@@ -23,7 +23,7 @@ export class TodoList extends Component {
     return (
       <div className="todoList">
         {this.state.todos.length
-          ? this.state.todos.map((item) => <TodoItem key={item.id} itemData={item} onDelete={this.deleteHandler} />).slice(0, 10)
+          ? this.state.todos.map((item) => <TodoItem key={item.id} itemData={item} onDelete={this.deleteHandler} />)
           : <NothingToShow displayText={"зараз немає чого тобі показати! 😘"}/>
         }
       </div>
