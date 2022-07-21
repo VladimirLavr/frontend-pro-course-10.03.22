@@ -5,13 +5,16 @@ export class TodoForm extends Component {
   state = {todoItemDraft: ''};
 
   onCreate = () => {
-    console.log({
-      id: randomId(),
-      title: this.state.todoItemDraft,
-      completed: false,
-    });
+    if (this.state.todoItemDraft) {
 
-    this.setState({todoItemDraft: ''});
+      this.props.onTodoCreate({
+        id: randomId(),
+        title: this.state.todoItemDraft,
+        completed: false,
+      });
+
+      this.setState({todoItemDraft: ''});
+    }
   };
 
   render() {
@@ -20,10 +23,10 @@ export class TodoForm extends Component {
         <input
           type="text"
           name="todo"
+          placeholder="What you need to do?"
           value={this.state.todoItemDraft}
-          onChange={({target}) => this.setState({todoItemDraft: target.value})}
+          onChange={(event) => this.setState({todoItemDraft: event.target.value})}
         />
-        <p>{this.state.todoItemDraft}</p>
         <button onClick={this.onCreate}>Add Todo Item</button>
       </div>
     );
