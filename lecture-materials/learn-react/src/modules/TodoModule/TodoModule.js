@@ -5,8 +5,10 @@ import {TodoList} from "./TodoList";
 import {TodoSearch} from "./TodoSearch";
 
 export class TodoModule extends Component {
+
   state = {
     todos: [],
+    selectedTodo: null,
   };
 
   componentDidMount() {
